@@ -1,0 +1,30 @@
+# Site settings
+title: I Downvoted because...
+email: willsullivan@live.com
+url: https://idownvotedbecau.se
+description: "A website designed to help you help others"
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+
+#categories
+category-list: [ "Code Review", "Stack Overflow" ]
+
+gems:
+  - jekyll-redirect-from
+  - jekyll-feed
+  - jekyll-sitemap
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: "images"
+    values:
+      image: true
+
+sass:
+    sass_dir: _sass

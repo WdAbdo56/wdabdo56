@@ -1,0 +1,153 @@
+---
+---
+// @import 'reset';
+
+//$primary-color: #1e1e1e;
+//$primary-background-color: #c1c1c1;
+$primary-font: 'Open Sans', sans-serif;
+$special-font: 'Lalezar', cursive, sans-serif;
+$highlight-color: #006FFF;
+$lighter-accent-color: #006FFF;
+$lighter-accent-color-hover: #008B68;
+$darker-accent-color: #1F00FF;
+$padding: 18px;
+
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (min-width: 769px) {
+    @content;
+  }
+}
+
+body{
+  font-family: $primary-font;
+  font-size: 20px;
+  margin:0;
+  //color: $primary-color;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.bannerBlock{
+  font-family: $special-font;
+  width:100%;
+  background-color: black;
+  color: #FFFFFF;
+  box-sizing: border-box;
+}
+header{
+  @extend .bannerBlock;
+  padding: 8.5px $padding;
+  h1{
+    margin: 0;
+    a:visited{
+      @extend .no-linky;
+    }
+    a:link{
+      @extend .no-linky;
+    }
+    a:visited{
+    color: $lighter-accent-color-hover;
+    }
+  }
+  h2{
+    margin: 0 0 0 $padding;
+    font-family: $primary-font;
+  }
+}
+
+p {
+  word-break: break-word;
+}
+
+.no-linky{
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+footer{
+  @extend .bannerBlock;
+  font-size:12px;
+  padding: $padding / 2;
+  background: black;
+  text-align: center;
+  margin-top: $padding;
+  font-family: $primary-font;
+  a:visited{
+    @extend .no-linky;
+  }
+  a:hover{
+    @extend .no-linky;
+  }
+  a:link{
+    @extend .no-linky;
+  }
+}
+
+.call-to-action {
+  flex: 1;
+}
+@include mobile {
+  .content, .call-to-action {
+    margin: 1em;
+  }
+}
+
+@include desktop {
+  .content, .call-to-action {
+    min-width: 725px;
+    width: 60%;
+    margin: 1em auto;
+  }
+}
+
+.logo {
+  position: absolute;
+  height: 36px;
+  width: 36px;
+  right: $padding;
+  top: $padding;
+  display: block;
+  background: url(images/octocat-logo.png);
+}
+a:link {
+  color: $lighter-accent-color;
+}
+a:visited {
+  color: $darker-accent-color;
+}
+a:hover {
+  color: $lighter-accent-color-hover;
+}
+img {
+  box-shadow: -4px 4px 0px 4px rgba(0,0,0,.5);
+  max-width: 100%;
+}
+h1, .page-byline {
+  display: inline;
+}
+
+blockquote {
+  background: #eee;
+  margin: 1em 0;
+  padding: 0.01em 1em;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+
+  p {
+    word-break: keep-all;
+  }
+}
+
+@media (max-width: 768px) {
+  .github-corner {
+    display: none;
+  }
+}
+
+li ul {
+    list-style: none; 
+}
